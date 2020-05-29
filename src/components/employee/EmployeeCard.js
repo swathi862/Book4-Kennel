@@ -6,6 +6,7 @@ class EmployeeCard extends Component {
     <div className = "card">
       <div className="employee-card">
         <p>Employees: {this.props.employee.name}</p>
+        {this.props.employee.animals.length === 0 ? <button type="button" onClick={()=> this.props.fireEmployee(this.props.employee.id)}>Remove</button> : ""}
       </div>
     </div>
     );

@@ -8,6 +8,17 @@ import EmployeeManager from '../../modules/EmployeeManager'
         state = {
             employees: [],
         }
+    deleteEmployee = id => {
+      EmployeeManager.delete(id)
+      .then(()=>{
+        EmployeeManager.getAll()
+        .then((newEmployees) => {
+          this.setState({
+            employees: newEmployees
+          })
+        })
+      })
+    }
 
     componentDidMount(){
         console.log("EMPLOYEE LIST: ComponentDidMount");
@@ -26,7 +37,7 @@ import EmployeeManager from '../../modules/EmployeeManager'
         return(
           <div className="container-cards">
             {this.state.employees.map(employee =>
-              <EmployeeCard key={employee.id} employee={employee} />
+              <EmployeeCard key={employee.id} employee={employee} fireEmployee={this.deleteEmployee}/>
             )}
           </div>
         )

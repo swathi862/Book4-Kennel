@@ -1,55 +1,95 @@
 {
-    "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle", "employeeId": 2},
-        { "id": 2, "name": "Decker", "breed": "German Sheperd", "employeeId": 1 },
-        { "id": 3, "name": "Esme", "breed": "Pitbull", "employeeId": 5 },
-        { "id": 4, "name": "Jack", "breed": "Cocker Spaniel", "employeeId": 3 },
-        { "id": 5, "name": "Angus", "breed": "Dalmatian", "employeeId": 2 },
-        { "id": 6, "name": "Henley", "breed": "Carolina Retriever", "employeeId": 1 },
-        { "id": 7, "name": "Mason", "breed": "Lhasa Apso", "employeeId": 4 }
-    ],
-    "locations": [
-        {
-            "id":1,
-            "name": "Nashville North"
-        },
-        {
-            "id":2,
-            "name": "Nashville South"
-        }
-    ],
-    "employees": [
-        {
-            "id":1,
-            "name": "Jessica Younker" 
-        },
-        {
-            "id":2,
-            "name": "Jordan Nelson"
-        },
-        {
-            "id":3,
-            "name": "Zoe LeBlanc"
-        },
-        {
-            "id":4,
-            "name": "Blaise Roberts" 
-        },
-        {
-            "id":5,
-            "name": "Blair McMillan" 
-        }
-    ],
-    "owners":[
-        {
-            "id":1,
-            "phone_number": "304-xxx-xxxx",
-            "name": "Michelle"
-        },
-        {
-            "id":2,
-            "phone_number": "304-600-xxxx",
-            "name": "David"
-        }
-    ]
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle",
+      "employeeId": 2
+    },
+    {
+      "id":2,
+      "name": "Decker",
+      "breed": "German Shepherd",
+      "employeeId": 1
+    },
+    {
+      "id": 3,
+      "name": "Esme",
+      "breed": "Pitbull",
+      "employeeId": 4
+    },
+    {
+      "id": 4,
+      "name": "Jack",
+      "breed": "Cocker Spaniel",
+      "employeeId": 3
+    },
+    {
+      "id": 5,
+      "name": "Angus",
+      "breed": "Dalmatian",
+      "employeeId": 1
+    },
+    {
+      "id": 6,
+      "name": "Henley",
+      "breed": "Carolina Retriever",
+      "employeeId": 3
+    },
+    {
+      "id": 7,
+      "name": "Mason",
+      "breed": "Lhasa Apso",
+      "employeeId": 2
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North"
+    },
+    {
+      "id":2,
+      "name": "Nashville South"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jessica Younker",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Blaise Roberts",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Blair McMillan",
+      "active": false
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "phone_number": "304-xxx-xxxx",
+      "name": "Michelle"
+    },
+    {
+      "id": 2,
+      "phone_number": "304-600-xxxx",
+      "name": "David"
+    }
+  ]
 }

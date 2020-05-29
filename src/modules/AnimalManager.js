@@ -6,5 +6,11 @@ export default {
   },
   getAll() {
     return fetch(`${remoteURL}/animals?_expand=employee`).then(result => result.json())
+  },
+  delete(id) {
+    return fetch(`http://localhost:5002/animals/${id}`, {
+        method: "DELETE"
+    })
+    .then(result => result.json())
   }
 }

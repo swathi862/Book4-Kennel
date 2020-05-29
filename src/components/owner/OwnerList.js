@@ -8,6 +8,17 @@ import OwnerManager from '../../modules/OwnerManager'
         state = {
             owners: [],
         }
+    deleteOwner = id => {
+      OwnerManager.delete(id)
+        .then(() => {
+        OwnerManager.getAll()
+          .then((newOwners) => {
+            this.setState({
+              owners: newOwners
+            })
+          })
+        })
+    }
 
     componentDidMount(){
         console.log("OWNER LIST: ComponentDidMount");
@@ -26,7 +37,7 @@ import OwnerManager from '../../modules/OwnerManager'
         return(
           <div className="container-cards">
             {this.state.owners.map(owner =>
-              <OwnerCard key={owner.id} owner={owner} />
+              <OwnerCard key={owner.id} owner={owner} removeOwner={this.deleteOwner} />
             )}
           </div>
         )

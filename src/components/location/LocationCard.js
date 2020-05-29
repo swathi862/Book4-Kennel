@@ -6,6 +6,7 @@ class LocationCard extends Component {
     <div className="card">
       <div className="location-card">
         <p>Location: {this.props.location.name}</p>
+        <button type="button" onClick={()=> this.props.closeLocation(this.props.location.id)}>Remove</button>
       </div>
     </div>
     );
