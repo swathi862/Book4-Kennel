@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import 'semantic-ui-css/semantic.min.css'
 import './Kennel.css'
 // import AnimalCard from './animal/AnimalCard'
 import NavBar from "./nav/NavBar"

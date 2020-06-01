@@ -7,7 +7,7 @@
       "employeeId": 2
     },
     {
-      "id":2,
+      "id": 2,
       "name": "Decker",
       "breed": "German Shepherd",
       "employeeId": 1
@@ -46,11 +46,15 @@
   "locations": [
     {
       "id": 1,
-      "name": "Nashville North"
+      "name": "Nashville North",
+      "address": "405 United Way",
+      "image": "https://i.pinimg.com/originals/0c/b4/67/0cb467155a45f1e5eba28f406d2def7b.jpg"
     },
     {
-      "id":2,
-      "name": "Nashville South"
+      "id": 2,
+      "name": "Nashville South",
+      "address": "1207 Pembrook Ave",
+      "image": "https://www.fallstwp.com/media/100880/outside-facility_394x263.jpg"
     }
   ],
   "employees": [
