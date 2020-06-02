@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 //import the components we will need
 import EmployeeCard from './EmployeeCard'
 import EmployeeManager from '../../modules/EmployeeManager'
+import { Button } from 'semantic-ui-react'
 
     class EmployeeList extends Component {
         //define what this component needs to render
@@ -47,11 +48,21 @@ import EmployeeManager from '../../modules/EmployeeManager'
         console.log("EmployeeList: Render");
       
         return(
+          <>
+          <br />
+          <section className="section-content">
+            <Button positive type="button"
+                className="btn"
+                onClick={() => {this.props.history.push("/employees/new")}}>
+                Hire Employee
+            </Button>
+          </section>
           <div className="container-cards">
             {this.state.employees.map(employee =>
               <EmployeeCard key={employee.id} employee={employee} fireEmployee={this.deleteEmployee} furloughEmployee={this.patchEmployee} />
             )}
           </div>
+          </>
         )
       }
 }

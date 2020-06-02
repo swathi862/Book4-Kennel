@@ -12,5 +12,18 @@ export default {
         method: "DELETE"
     })
     .then(result => result.json())
+  },
+  getMaps() {
+    return fetch("https://api.mapbox/com/tokens/v2/swathi8624?access_token=")
+    .then(result => result.json())
+  },
+  post(newLocation) {
+    return fetch(`${remoteURL}/locations`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newLocation)
+    }).then(data => data.json())
   }
 }

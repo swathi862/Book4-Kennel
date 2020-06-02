@@ -5,15 +5,14 @@ import './Kennel.css'
 import NavBar from "./nav/NavBar"
 import ApplicationViews from "./ApplicationViews"
 
-
 class Kennel extends Component {
     // kennelName = "Student Kennels"
 
     render() {
         return (
 	        <>
-                <NavBar />
-                <ApplicationViews />
+            <NavBar />
+            <ApplicationViews />
             </>
         );
     }

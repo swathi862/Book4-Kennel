@@ -2,23 +2,24 @@ import React, { Component } from 'react'
 //import the components we will need
 import AnimalCard from './AnimalCard'
 import AnimalManager from '../../modules/AnimalManager'
+import { Button } from 'semantic-ui-react'
 
     class AnimalList extends Component {
         //define what this component needs to render
         state = {
             animals: [],
         }
-  deleteAnimal = id => {
-    AnimalManager.delete(id)
-      .then(() => {
-      AnimalManager.getAll()
-        .then((newAnimals) => {
-          this.setState({
-            animals: newAnimals
-          })
-        })
-      })
-  }
+  // deleteAnimal = id => {
+  //   AnimalManager.delete(id)
+  //     .then(() => {
+  //     AnimalManager.getAll()
+  //       .then((newAnimals) => {
+  //         this.setState({
+  //           animals: newAnimals
+  //         })
+  //       })
+  //     })
+  // }
 
     componentDidMount(){
         console.log("ANIMAL LIST: ComponentDidMount");
@@ -35,11 +36,22 @@ import AnimalManager from '../../modules/AnimalManager'
         console.log("AnimalList: Render");
       
         return(
+          <>
+          <br />
+          <section className="section-content">
+            <Button positive type="button"
+                className="btn"
+                onClick={() => {this.props.history.push("/animals/new")}}>
+                Admit Animal
+            </Button>
+          </section>
           <div className="container-cards">
             {this.state.animals.map(animal =>
-              <AnimalCard key={animal.id} animal={animal} dischargeAnimal={this.deleteAnimal}/>
+              <AnimalCard key={animal.id} animal={animal} /> 
+              // dischargeAnimal={this.deleteAnimal}/>
             )}
           </div>
+          </>
         )
       }
 }

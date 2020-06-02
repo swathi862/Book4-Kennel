@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 class OwnerCard extends Component {
   render() {
     return (
     <div className="card">
-      <div className="owner-card">
+      <div className="owner-card section-content">
         <p>Owner: {this.props.owner.name}</p>
-        <p>Phone Number: {this.props.owner.phone_number}</p>
-        <button type="button" onClick={()=> this.props.removeOwner(this.props.owner.id)}>Remove</button>
+        <Link to={`/owners/${this.props.owner.id}`}><Button secondary>Details</Button></Link>
       </div>
     </div>
     );

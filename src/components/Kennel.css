@@ -40,9 +40,23 @@ h1,h2,h3,h4,h5,h6 {
     border: 1x solid gray;
 }
 
-img{
-    display: block;
+.home-page-dog{
+    border: 4px ridge grey;
+}
+
+.animal-image {
     height: auto;
     border-radius: 50%;
-    width: 80%
+    width: 80%;
+}
+
+.anon-image{
+    height: auto;
+    width: 80%;
+}
+
+.location-image{
+    height: auto;
+    width: 100%;
+    border: 4px ridge grey;
 }

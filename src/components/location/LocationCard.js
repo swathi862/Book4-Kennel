@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 class LocationCard extends Component {
   render() {
     return (
     <div className="card">
-      <div className="location-card">
+      <div className="location-card section-content">
           <picture>
-            <img src={this.props.location.image} alt="kennel location" />
+            <img className="location-image" src={this.props.location.image} alt="kennel location" />
           </picture><br />
         <p>Location: {this.props.location.name}</p>
-        <button type="button" onClick={()=> this.props.closeLocation(this.props.location.id)}>Remove</button>
-        <Link to={`/locations/${this.props.location.id}`}><button>Details</button></Link>
+        <Link to={`/locations/${this.props.location.id}`}><Button secondary>Details</Button></Link>
       </div>
     </div>
     );

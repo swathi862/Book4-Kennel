@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
 import './AnimalDetail.css'
+import { Button } from 'semantic-ui-react'
 
 class AnimalDetail extends Component {
 
@@ -8,7 +9,15 @@ class AnimalDetail extends Component {
       name: "",
       breed: "",
       employee: "",
+      loadingStatus: true,
   }
+
+  handleDelete = () => {
+    //invoke the delete function in AnimalManger and re-direct to the animal list.
+    this.setState({loadingStatus: true})
+    AnimalManager.delete(this.props.animalId)
+    .then(() => this.props.history.push("/animals"))
+   }
 
   componentDidMount(){
     console.log("AnimalDetail: ComponentDidMount");
@@ -18,7 +27,8 @@ class AnimalDetail extends Component {
       this.setState({
         name: animal.name,
         breed: animal.breed,
-        employee: animal.employee
+        employee: animal.employee,
+        loadingStatus: false
       });
     });
   }
@@ -26,13 +36,14 @@ class AnimalDetail extends Component {
   render() {
     return (
       <div className="card">
-        <div className="card-content">
+        <div className="card-content section-content">
           <picture>
-            <img src={require('./dog.svg')} alt="My Dog" />
+            <img className="animal-image" src={require('./dog.svg')} alt="My Dog" />
           </picture>
             <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <p>Breed: {this.state.breed}</p>
             <p>Taken Care of by: {this.state.employee.name}</p>
+            <Button primary type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</Button>
         </div>
       </div>
     );
