@@ -40,6 +40,7 @@ class OwnerDetail extends Component {
             <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.ownerName}</span></h3>
             <p>Phone Number: {this.state.phoneNumber}</p>
             <Button primary type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Remove</Button>
+            <Button type="button" onClick={() => {this.props.history.push(`/owners/${this.props.ownerId}/edit`)}}>Edit</Button>
         </div>
       </div>
     );

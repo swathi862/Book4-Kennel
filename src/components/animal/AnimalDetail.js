@@ -4,6 +4,7 @@ import './AnimalDetail.css'
 import { Button } from 'semantic-ui-react'
 
 class AnimalDetail extends Component {
+ existingAnimalId = () => this.state.name !== undefined
 
   state = {
       name: "",
@@ -35,6 +36,7 @@ class AnimalDetail extends Component {
 
   render() {
     return (
+    this.existingAnimalId() ?
       <div className="card">
         <div className="card-content section-content">
           <picture>
@@ -44,8 +46,10 @@ class AnimalDetail extends Component {
             <p>Breed: {this.state.breed}</p>
             <p>Taken Care of by: {this.state.employee.name}</p>
             <Button primary type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</Button>
+            <Button type="button" onClick={() => {this.props.history.push(`/animals/${this.props.animalId}/edit`)}}>Edit</Button>
         </div>
       </div>
+      : <h1>       This animal currently doesn't reside at our kennel!</h1> 
     );
   }
 }

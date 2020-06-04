@@ -48,6 +48,8 @@ class EmployeeDetail extends Component {
             <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.employeeName}</span></h3>
             {this.state.animals.length === 0 && this.state.active ? <Button primary type="button" disabled={this.state.loadingStatus} onClick={this.handlePatch}>Furlough</Button> : ""}
             {this.state.animals.length === 0 ? <Button negative type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Fire</Button> : ""}
+            <Button type="button" onClick={() => {this.props.history.push(`/employees/${this.props.employeeId}/edit`)}}>Edit</Button>
+
         </div>
       </div>
     );

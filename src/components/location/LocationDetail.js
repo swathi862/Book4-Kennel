@@ -59,6 +59,8 @@ class LocationDetail extends Component {
             <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <p>Address: {this.state.address}</p>
             <Button negative type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Remove</Button>
+            <Button type="button" onClick={() => {this.props.history.push(`/locations/${this.props.locationId}/edit`)}}>Edit</Button>
+
         </div>
             <ReactMapGL
                 {...this.state.viewport} mapboxApiAccessToken={partyKey}                  
