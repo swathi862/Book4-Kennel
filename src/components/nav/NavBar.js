@@ -21,6 +21,7 @@ class NavBar extends Component {
           </ul>
         </nav>
       </header>
+      
     )
   }
 }

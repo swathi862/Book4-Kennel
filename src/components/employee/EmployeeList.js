@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //import the components we will need
-import EmployeeCard from './EmployeeCard'
+import ResourceCard from '../reusables/ResourceCard'
 import EmployeeManager from '../../modules/EmployeeManager'
 import { Button } from 'semantic-ui-react'
 
@@ -9,29 +9,29 @@ import { Button } from 'semantic-ui-react'
         state = {
             employees: [],
         }
-    deleteEmployee = id => {
-      EmployeeManager.delete(id)
-      .then(()=>{
-        EmployeeManager.getAll()
-        .then((newEmployees) => {
-          this.setState({
-            employees: newEmployees
-          })
-        })
-      })
-    }
+    // deleteEmployee = id => {
+    //   EmployeeManager.delete(id)
+    //   .then(()=>{
+    //     EmployeeManager.getAll()
+    //     .then((newEmployees) => {
+    //       this.setState({
+    //         employees: newEmployees
+    //       })
+    //     })
+    //   })
+    // }
 
-    patchEmployee = id => {
-      EmployeeManager.patch(id)
-      .then(()=>{
-        EmployeeManager.getAll()
-        .then((newEmployees) => {
-          this.setState({
-            employees: newEmployees
-          })
-        })
-      })
-    }
+    // patchEmployee = id => {
+    //   EmployeeManager.patch(id)
+    //   .then(()=>{
+    //     EmployeeManager.getAll()
+    //     .then((newEmployees) => {
+    //       this.setState({
+    //         employees: newEmployees
+    //       })
+    //     })
+    //   })
+    // }
 
     componentDidMount(){
         console.log("EMPLOYEE LIST: ComponentDidMount");
@@ -59,7 +59,8 @@ import { Button } from 'semantic-ui-react'
           </section>
           <div className="container-cards">
             {this.state.employees.map(employee =>
-              <EmployeeCard key={employee.id} employee={employee} fireEmployee={this.deleteEmployee} furloughEmployee={this.patchEmployee} />
+              <ResourceCard key={employee.id} resource={employee} resourceName="employees"/>
+              // fireEmployee={this.deleteEmployee} furloughEmployee={this.patchEmployee} 
             )}
           </div>
           </>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //import the components we will need
-import AnimalCard from './AnimalCard'
+import ResourceCard from '../reusables/ResourceCard'
 import AnimalManager from '../../modules/AnimalManager'
 import { Button } from 'semantic-ui-react'
 
@@ -47,7 +47,7 @@ import { Button } from 'semantic-ui-react'
           </section>
           <div className="container-cards">
             {this.state.animals.map(animal =>
-              <AnimalCard key={animal.id} animal={animal} /> 
+              <ResourceCard key={animal.id} resource={animal} resourceName="animals"/> 
               // dischargeAnimal={this.deleteAnimal}/>
             )}
           </div>

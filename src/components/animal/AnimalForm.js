@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
 import './AnimalForm.css'
+import EmployeeManager from '../../modules/EmployeeManager';
 
 class AnimalForm extends Component {
     state = {
         animalName: "",
         breed: "",
+        employeeId: "",
+        employees: [],
         loadingStatus: false,
     };
 
@@ -15,7 +18,7 @@ class AnimalForm extends Component {
         this.setState(stateToChange);
     };
 
-    /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
+    /*  Local method for validation, set loadingStatus, create animal object, invoke the AnimalManager post method, and redirect to the full animal list
     */
     constructNewAnimal = evt => {
         evt.preventDefault();
@@ -26,7 +29,7 @@ class AnimalForm extends Component {
             const animal = {
                 name: this.state.animalName,
                 breed: this.state.breed,
-                employeeId: 1
+                employeeId: this.state.employeeId
             };
 
             // Create the animal and redirect user to animal list
@@ -34,6 +37,17 @@ class AnimalForm extends Component {
             .then(() => this.props.history.push("/animals"));
         }
     };
+
+    componentDidMount(){
+        console.log("AnimalForm: ComponentDidMount")
+
+        EmployeeManager.getAll().then((employees) =>{
+            console.log(employees)
+            this.setState({
+                employees: employees
+            })
+        })
+    }
 
     render(){
 
@@ -58,6 +72,24 @@ class AnimalForm extends Component {
                         placeholder="Breed"
                         />
                         <label htmlFor="breed">Breed</label>
+
+                        <label htmlFor="employeeId">Under Care of: </label>
+                        <select
+                        className="form-control"
+                        placeholder="Select an employee"
+                        id="employeeId"
+                        value={this.state.employeeId}
+                        onChange={this.handleFieldChange}
+                        >
+                        <option value="0">Please select an employee</option>
+                        {this.state.employees.map(employee =>
+                            <option key={employee.id} value={employee.id}>
+                            {employee.name}
+                            </option>
+                        )}
+                        </select>
+                       
+
                     </div>
                     <div className="alignRight">
                         <button

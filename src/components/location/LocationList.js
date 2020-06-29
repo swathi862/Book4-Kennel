@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //import the components we will need
-import LocationCard from './LocationCard'
+import ResourceCard from '../reusables/ResourceCard'
 import LocationManager from '../../modules/LocationManager'
 import { Button } from 'semantic-ui-react'
 
@@ -47,7 +47,7 @@ import { Button } from 'semantic-ui-react'
           </section>
           <div className="container-cards">
             {this.state.locations.map(location =>
-              <LocationCard key={location.id} location={location} />
+              <ResourceCard key={location.id} resource={location} resourceName="locations"/>
               // closeLocation={this.deleteLocation}/>
             )}
           </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import AnimalManager from "../../modules/AnimalManager"
 import { Button } from 'semantic-ui-react'
+import EmployeeManager from '../../modules/EmployeeManager'
 
 class AnimalEditForm extends Component {
     //set the initial state
@@ -8,6 +9,7 @@ class AnimalEditForm extends Component {
       animalName: "",
       breed: "",
       employeeId: "",
+      employees: [],
       loadingStatus: true,
     };
 
@@ -37,10 +39,15 @@ class AnimalEditForm extends Component {
           this.setState({
             animalName: animal.name,
             breed: animal.breed,
-            employeeId: animal.employeeId,
             loadingStatus: false,
           });
       });
+      EmployeeManager.getAll()
+      .then(employee =>{
+          this.setState({
+          employees: employee
+        })
+      })
     }
 
     render() {
@@ -68,6 +75,20 @@ class AnimalEditForm extends Component {
                 value={this.state.breed}
               />
               <label htmlFor="breed">Breed</label>
+
+              <label htmlFor="employeeId">Under Care of: </label>
+              <select
+                className="form-control"
+                id="employeeId"
+                value={this.state.employeeId}
+                onChange={this.handleFieldChange}
+                >
+                {this.state.employees.map(employee =>
+                    <option key={employee.id} value={employee.id}>
+                    {employee.name}
+                    </option>
+                )}
+              </select>
             </div>
             <div className="alignRight">
               <Button positive

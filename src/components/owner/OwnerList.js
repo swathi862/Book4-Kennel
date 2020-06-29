@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //import the components we will need
-import OwnerCard from './OwnerCard'
+import ResourceCard from '../reusables/ResourceCard'
 import OwnerManager from '../../modules/OwnerManager'
 import { Button } from 'semantic-ui-react'
 
@@ -47,7 +47,7 @@ import { Button } from 'semantic-ui-react'
           </section>
           <div className="container-cards">
             {this.state.owners.map(owner =>
-              <OwnerCard key={owner.id} owner={owner} />
+              <ResourceCard key={owner.id} resource={owner} resourceName="owners"/>
               // removeOwner={this.deleteOwner} />
             )}
           </div>

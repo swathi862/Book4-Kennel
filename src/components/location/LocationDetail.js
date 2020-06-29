@@ -4,6 +4,7 @@ import ReactMapGL from 'react-map-gl';
 // import { accessToken } from 'mapbox-gl';
 import partyKey from '../../appKeys'
 import { Button } from 'semantic-ui-react'
+import ResourceCard from '../reusables/ResourceCard'
 
 class LocationDetail extends Component {
 
@@ -11,6 +12,7 @@ class LocationDetail extends Component {
       name: "",
       address: "",
       image: "",
+      employees: [],
       loadingStatus: true,
       viewport: {
         width: 0,
@@ -30,12 +32,14 @@ class LocationDetail extends Component {
   componentDidMount(){
     console.log("LocationDetail: ComponentDidMount");
     //get(id) from LocationManager and hang on to the data; put it into state
-    LocationManager.get(this.props.locationId)
+    LocationManager.getWithEmployees(this.props.locationId)
     .then((location) => {
+        console.log(location)
       this.setState({
         name: location.name,
         address: location.address,
         image: location.image,
+        employees: location.employees,
         loadingStatus: false,
         viewport:{
             width: 400,
@@ -60,6 +64,11 @@ class LocationDetail extends Component {
             <p>Address: {this.state.address}</p>
             <Button negative type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Remove</Button>
             <Button type="button" onClick={() => {this.props.history.push(`/locations/${this.props.locationId}/edit`)}}>Edit</Button>
+            <h3>Employees: 
+            {this.state.employees.map(employee =>
+              <ResourceCard key={employee.id} resource={employee} resourceName="employees"/>
+            )}</h3>
+            
 
         </div>
             <ReactMapGL

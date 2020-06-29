@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Doodles",
       "breed": "Poodle",
-      "employeeId": 2
+      "employeeId": "2"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
-      "employeeId": 4
+      "employeeId": "4"
     },
     {
       "id": 4,
@@ -73,36 +73,44 @@
     {
       "id": 1,
       "name": "Jessica Younker",
-      "active": true
+      "active": true,
+      "locationId": 1
     },
     {
       "id": 2,
-      "name": "Jordan Nelson"
+      "name": "Jordan Nelson",
+      "active": true,
+      "locationId": 2
     },
     {
       "id": 3,
       "name": "Zoe LeBlanc",
-      "active": true
+      "active": true,
+      "locationId": 3
     },
     {
       "id": 4,
       "name": "Blaise Roberts",
-      "active": true
+      "active": true,
+      "locationId": 1
     },
     {
       "id": 5,
       "name": "Blair McMillan",
-      "active": false
+      "active": false,
+      "locationId": 3
     },
     {
       "name": "Jordan Baker",
       "active": false,
-      "id": 6
+      "id": 6,
+      "locationId": 2
     },
     {
       "name": "Bill Smith",
       "active": false,
-      "id": 7
+      "id": 7,
+      "locationId": 1
     }
   ],
   "owners": [
